@@ -49,13 +49,15 @@ jobs:
         env:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
-      - name: Set up Maven 3.9.9
-        uses: s4u/setup-maven-action@v1.21.0
-        with:
-          maven-version: '3.9.9'
+      - name: Install Apache Maven 3.9.9
+        run: |
+          curl -sL https://archive.apache.org/dist/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz | sudo tar -xz -C /usr/local
+          echo "/usr/local/apache-maven-3.9.9/bin" >> $GITHUB_PATH
 
       - name: Verify Maven and Java version
-        run: mvn -version
+        run: |
+          export PATH="/usr/local/apache-maven-3.9.9/bin:$PATH"
+          mvn -version
 
       - name: Configure Git User
         run: |
