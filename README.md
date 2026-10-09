@@ -1,11 +1,12 @@
 # APS SDK Project Archetype
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.alfresco-aps-sdk/aps-project-archetype.svg)](https://central.sonatype.com/artifact/io.github.alfresco-aps-sdk/aps-project-archetype)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Documentation](https://img.shields.io/badge/docs-portal-brightgreen.svg)](https://alfresco-aps-sdk.github.io/)
 [![Organization](https://img.shields.io/badge/GitHub-alfresco--aps--sdk-0969da.svg)](https://github.com/alfresco-aps-sdk)
 [![Commercial Support](https://img.shields.io/badge/Support-TAI%20Solutions-orange.svg)](https://www.taisolutions.com/)
 
-Maven Archetype to bootstrap complete, production-ready **Alfresco Process Services (APS) SDK 3.x** projects with a single command.
+Maven Archetype to bootstrap complete, production-ready **Alfresco Process Services (APS) SDK 3.x** projects with a single command. Publicly available on **Maven Central**.
 
 ---
 
@@ -17,7 +18,7 @@ To generate a new APS project, run:
 mvn archetype:generate \
   -DarchetypeGroupId=io.github.alfresco-aps-sdk \
   -DarchetypeArtifactId=aps-project-archetype \
-  -DarchetypeVersion=3.1.3-SNAPSHOT \
+  -DarchetypeVersion=3.1.3 \
   -DgroupId=com.example \
   -DartifactId=my-aps-project \
   -Dversion=1.0.0-SNAPSHOT \
