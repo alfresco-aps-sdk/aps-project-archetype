@@ -5,13 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>io.github.alfresco-aps-sdk</groupId>
-	<artifactId>aps-project-archetype</artifactId>
+	<artifactId>aps-project-archetype-parent</artifactId>
 	<version>3.1.3-SNAPSHOT</version>
-	<packaging>maven-archetype</packaging>
+	<packaging>pom</packaging>
 
-	<name>APS Project Archetype</name>
-	<description>Maven Archetype for bootstrapping Alfresco Process Services
-		(APS) SDK Projects</description>
+	<name>APS Project Archetype - Parent</name>
+	<description>Parent POM for Alfresco Process Services (APS) SDK Archetypes</description>
 	<url>https://alfresco-aps-sdk.github.io/</url>
 
 	<licenses>
@@ -30,12 +29,14 @@
 	</developers>
 
 	<scm>
-		<connection>
-			scm:git:git://github.com/alfresco-aps-sdk/aps-project-archetype.git</connection>
-		<developerConnection>
-			scm:git:ssh://github.com:alfresco-aps-sdk/aps-project-archetype.git</developerConnection>
+		<connection>scm:git:git://github.com/alfresco-aps-sdk/aps-project-archetype.git</connection>
+		<developerConnection>scm:git:ssh://github.com/alfresco-aps-sdk/aps-project-archetype.git</developerConnection>
 		<url>https://github.com/alfresco-aps-sdk/aps-project-archetype/tree/main</url>
 	</scm>
+
+	<modules>
+		<module>aps-project-archetype</module>
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -56,24 +57,7 @@
 	</distributionManagement>
 
 	<build>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.archetype</groupId>
-				<artifactId>archetype-packaging</artifactId>
-				<version>3.4.1</version>
-			</extension>
-		</extensions>
 		<plugins>
-			<plugin>
-				<groupId>org.sonatype.central</groupId>
-				<artifactId>central-publishing-maven-plugin</artifactId>
-				<version>0.11.0</version>
-				<extensions>true</extensions>
-				<configuration>
-					<publishingServerId>central</publishingServerId>
-					<autoPublish>true</autoPublish>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -127,6 +111,16 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
+				<version>0.11.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<publishingServerId>central</publishingServerId>
+					<autoPublish>true</autoPublish>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
