@@ -49,6 +49,14 @@ jobs:
         env:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
+      - name: Set up Maven 3.9.9
+        uses: s4u/setup-maven-action@v1.21.0
+        with:
+          maven-version: '3.9.9'
+
+      - name: Verify Maven and Java version
+        run: mvn -version
+
       - name: Configure Git User
         run: |
           git config user.name "github-actions[bot]"
@@ -82,20 +90,10 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
-          echo "Starting metadata cleanup watcher..."
-          (while [ ! -f /tmp/stop_watch ]; do
-            find target/central-staging -name "*maven-metadata-local.xml*" -delete 2>/dev/null || true
-            sleep 0.02
-          done) &
-          WATCHER_PID=$!
-          
           echo "Deploying archetype to Maven Central Portal..."
           mvn --batch-mode clean deploy -DskipTests \
             -Dgpg.skip=false \
             -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}" -e
-            
-          touch /tmp/stop_watch
-          kill $WATCHER_PID 2>/dev/null || true
 
       - name: Commit, Tag and Push Release Version (Workflow Dispatch)
         if: github.event_name == 'workflow_dispatch' && inputs.dry_run == false
