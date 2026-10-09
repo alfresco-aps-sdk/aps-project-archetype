@@ -1,4 +1,4 @@
-# APS Project Archetype
+# APS SDK Project Archetype
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Documentation](https://img.shields.io/badge/docs-portal-brightgreen.svg)](https://alfresco-aps-sdk.github.io/)
