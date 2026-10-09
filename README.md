@@ -15,7 +15,7 @@ To generate a new APS project, run:
 
 ```bash
 mvn archetype:generate \
-  -DarchetypeGroupId=org.alfresco.activiti \
+  -DarchetypeGroupId=io.github.alfresco-aps-sdk \
   -DarchetypeArtifactId=aps-project-archetype \
   -DarchetypeVersion=3.1.3-SNAPSHOT \
   -DgroupId=com.example \
