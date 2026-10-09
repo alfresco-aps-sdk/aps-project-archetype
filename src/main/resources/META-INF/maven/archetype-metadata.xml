@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.2.0 https://maven.apache.org/xsd/archetype-descriptor-1.2.0.xsd" name="aps-project"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <fileSets>
+    <fileSet encoding="UTF-8">
+      <directory>license</directory>
+      <includes>
+        <include>**/*.md</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <includes>
+        <include>run.bat</include>
+        <include>.maven-dockerignore</include>
+        <include>run.sh</include>
+        <include>README.md</include>
+        <include>.dockerignore</include>
+        <include>.gitignore</include>
+        <include>LICENSE.txt</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+  <modules>
+    <module id="aps-extensions-jar" dir="aps-extensions-jar" name="aps-extensions-jar">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/assembly</directory>
+          <includes>
+            <include>**/*.xml</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+          <excludes>
+            <exclude>com/activiti/extension/bean/TestWorkflowUtils.java</exclude>
+          </excludes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <includes>
+            <include>com/activiti/extension/bean/TestWorkflowUtils.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/test/resources</directory>
+          <includes>
+            <include>**/*.xml</include>
+            <include>**/*.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>src/test/resources</directory>
+          <includes>
+            <include>**/*.png</include>
+            <include>**/*.json</include>
+            <include>**/*.conf</include>
+          </includes>
+          <excludes>
+            <exclude>**/*.lic</exclude>
+          </excludes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="activiti-app-overlay-war" dir="activiti-app-overlay-war" name="activiti-app-overlay-war">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/webapp</directory>
+          <includes>
+            <include>**/*.properties</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="activiti-app-overlay-docker" dir="activiti-app-overlay-docker" name="activiti-app-overlay-docker">
+      <fileSets>
+        <fileSet encoding="UTF-8">
+          <directory>src/main/docker</directory>
+          <includes>
+            <include>**/*</include>
+          </includes>
+          <excludes>
+            <exclude>**/*.lic</exclude>
+          </excludes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="activiti-app-integration-tests" dir="activiti-app-integration-tests" name="activiti-app-integration-tests">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+  </modules>
+</archetype-descriptor>
